@@ -1,6 +1,11 @@
 package guimodule;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.utils.MapUtils;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.PointFeature;
@@ -12,6 +17,7 @@ import processing.core.*;
 
 
 public class EarthquakeCityMap extends PApplet{
+	
 	
 	private UnfoldingMap map;
 	
@@ -42,18 +48,68 @@ public class EarthquakeCityMap extends PApplet{
 		Location valLoc = new Location(29.71f,-95.41f);
 			
 		
-		Feature valEq = new PointFeature(valLoc);
+		
+//		------------------------
+//		For a single data
+//		------------------------
+		Feature valEq = new PointFeature(valLoc);      							       // put location object in point feature
+		valEq.addProperty("title", "Valdivia,Chile");
+		valEq.addProperty("magnitude", "9.5");
+		valEq.addProperty("date", "May 22, 1960");
+		valEq.addProperty("year", "1960");
+		
+		List<PointFeature> bigEqs = new ArrayList<PointFeature>();                    // put multiple location with multiple feature in the list
 		
 		
+//		------------------------
+//		For multiple data
+//		------------------------
 		
-		Marker val = new SimplePointMarker(valLoc);
-		map.addMarker(val);                                							 // At the end, associate with the map
+		bigEqs.add(valEq);
+//		bigEqs.add(alaskaEq);
+//		bigEqs.add(sumatraEq);
+//		bigEqs.add(japanEq);
+//		bigEqs.add(kamchatkaEq);
+		
+//		------------------------
+//		Create multiple Marker
+//		------------------------
+		List<Marker> markers = new ArrayList<Marker>();
+		for (PointFeature eq: bigEarthquakes) {
+			markers.add(new SimplePointMarker(eq.getLocation(),eq.getProperties()));
+		}
+		
+//		------------------------
+//		style multiple Marker
+//		------------------------
+		
+		for(Marker mk: markers) {
+			if ((int) mk.getProperties("year") > 2000) {
+				mk.setColor(yellow);
+			} else {
+				mk.setColor(gray);
+			}
+			
+			
+			
+		}
+		
+		
+
+		
+		
+//		------------------------
+//		Create single Marker
+//      ------------------------	
+		
+		Marker valMK = new SimplePointMarker(valLoc, valEq.getProperties());     		// put feature obj(Feature) in Marker obj
+		map.addMarker(valMK);                            								// At the end, associate marker obj with the map
 			
 		
 	}
 	
 	
-	public void draw() {
+	public void draw() {        // refresh the screen
 		background(10);
 		map.draw();
 //		addKey();       															// start to design by myself
