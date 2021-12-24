@@ -3,4 +3,4 @@
 
 
 
-![][lifeExp.png]
+![lifeExp][lifeExp.png]
