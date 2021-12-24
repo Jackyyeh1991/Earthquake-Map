@@ -1,0 +1,6 @@
+# Earthquake-Map
+
+
+
+
+![][lifeExp.png]
