@@ -2,5 +2,4 @@
 
 
 
-
-![lifeExp][Earthquake-Map/lifeExp.png]
+! [lifeExp][Earthquake-Map/lifeExp.png]
