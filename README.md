@@ -3,4 +3,4 @@
 
 
 
-![lifeExp][lifeExp.png]
+![lifeExp][Earthquake-Map/lifeExp.png]
