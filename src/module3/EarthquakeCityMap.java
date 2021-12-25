@@ -90,12 +90,12 @@ public class EarthquakeCityMap extends PApplet {
 	    }
 	    
 	    
+	    // this is test
 	    
 	    
+	   
 	    
-	    
-	    
-//	    123
+
 	    
 	    
 	    
