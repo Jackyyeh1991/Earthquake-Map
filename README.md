@@ -4,4 +4,4 @@
 ![lifeExp](lifeExp.png)
 
 
-![](Earthquake-Map/image/EarthquakeLocationMag.png)
+![Earthquake](/image/EarthquakeLocationMag.png)
