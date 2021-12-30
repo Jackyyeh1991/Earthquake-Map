@@ -18,7 +18,7 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 
 	// SimplePointMarker has a field "radius" which is inherited
 	// by Earthquake marker:
-	// protected float radius;
+	 protected float radius;
 	//
 	// You will want to set this in the constructor, either
 	// using the thresholds below, or a continuous function
@@ -67,7 +67,26 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		// call abstract method implemented in child class to draw marker shape
 		drawEarthquake(pg, x, y);
 		
-		// OPTIONAL TODO: draw X over marker if within past day		
+		// OPTIONAL TODO: draw X over marker if within past day
+		String age = getStringProperty("age");
+		if ("Past Hour".equals(age) || "Past Day".equals(age)) {
+			
+			pg.strokeWeight(2);
+			int buffer = 2;
+			pg.line(x-(radius+buffer), 
+					y-(radius+buffer), 
+					x+radius+buffer, 
+					y+radius+buffer);
+			pg.line(x-(radius+buffer), 
+					y+(radius+buffer), 
+					x+radius+buffer, 
+					y-(radius+buffer));
+			
+		}
+		
+		
+		
+		
 		
 		// reset to previous styling
 		pg.popStyle();
@@ -81,6 +100,22 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	// You might find the getters below helpful.
 	private void colorDetermine(PGraphics pg) {
 		//TODO: Implement this method
+		
+
+		float depth = getDepth();
+		
+		if (depth < THRESHOLD_INTERMEDIATE) {
+			pg.fill(255, 255, 0);
+		}
+		else if (depth < THRESHOLD_DEEP) {
+			pg.fill(0, 0, 255);
+		}
+		else {
+			pg.fill(255, 0, 0);
+		}
+		
+		
+		
 	}
 	
 	
