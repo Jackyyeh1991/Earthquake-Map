@@ -34,7 +34,7 @@ public class EarthquakeCityMap extends PApplet {
 	private static final long serialVersionUID = 1L;
 
 	// IF YOU ARE WORKING OFFLINE, change the value of this variable to true
-	private static final boolean offline = false;
+	private static final boolean offline = true;
 	
 	// Less than this threshold is a light earthquake
 	public static final float THRESHOLD_MODERATE = 4;
@@ -56,7 +56,7 @@ public class EarthquakeCityMap extends PApplet {
 //		size(950, 600, OPENGL);              																		// No OPENGL
 
 		if (offline) {
-		    map = new UnfoldingMap(this, 200, 200, 50, 500, new MBTilesMapProvider(mbTilesString));
+		    map = new UnfoldingMap(this, 600, 200, 50, 500, new MBTilesMapProvider(mbTilesString));
 //		    map = new UnfoldingMap(this, 200, 50, 700, 500, new MBTilesMapProvider(mbTilesString));
 		    earthquakesURL = "2.5_week.atom"; 	// Same feed, saved Aug 7, 2015, for working offline
 		}

@@ -15,7 +15,7 @@ public class OceanQuakeMarker extends EarthquakeMarker {
 		super(quake);
 		
 		// setting field in earthquake marker
-		isOnLand = false;
+		isOnLand = false;                             // here is setting field marker to indicate that the marker is "not" in land
 	}
 	
 

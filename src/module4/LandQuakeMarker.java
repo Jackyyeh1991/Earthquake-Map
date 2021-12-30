@@ -18,7 +18,7 @@ public class LandQuakeMarker extends EarthquakeMarker {
 		super(quake);
 		
 		// setting field in earthquake marker
-		isOnLand = true;
+		isOnLand = true;                              // here is setting field marker to indicate that the marker is in land
 	}
 
 

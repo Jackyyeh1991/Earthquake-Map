@@ -14,6 +14,7 @@ import de.fhpotsdam.unfolding.marker.MultiMarker;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
+import module5.EarthquakeMarker;
 import parsing.ParseFeed;
 import processing.core.PApplet;
 
@@ -35,7 +36,7 @@ public class EarthquakeCityMap extends PApplet {
 	private static final long serialVersionUID = 1L;
 
 	// IF YOU ARE WORKING OFFILINE, change the value of this variable to true
-	private static final boolean offline = false;
+	private static final boolean offline = true;
 	
 	/** This is where to find the local tiles, for working without an Internet connection */
 	public static String mbTilesString = "blankLight-1-3.mbtiles";
@@ -76,8 +77,8 @@ public class EarthquakeCityMap extends PApplet {
 		
 		// FOR TESTING: Set earthquakesURL to be one of the testing files by uncommenting
 		// one of the lines below.  This will work whether you are online or offline
-		//earthquakesURL = "test1.atom";
-		//earthquakesURL = "test2.atom";
+//		earthquakesURL = "test1.atom";
+		earthquakesURL = "test2.atom";
 		
 		// WHEN TAKING THIS QUIZ: Uncomment the next line
 		//earthquakesURL = "quiz1.atom";
@@ -85,24 +86,26 @@ public class EarthquakeCityMap extends PApplet {
 		
 		// (2) Reading in earthquake data and geometric properties
 	    //     STEP 1: load country features and markers
-		List<Feature> countries = GeoJSONReader.loadData(this, countryFile);
+		List<Feature> countries = GeoJSONReader.loadData(this, countryFile);          // marker with countries: location and geo(feature)
 		countryMarkers = MapUtils.createSimpleMarkers(countries);
 		
 		//     STEP 2: read in city data
-		List<Feature> cities = GeoJSONReader.loadData(this, cityFile);
+		List<Feature> cities = GeoJSONReader.loadData(this, cityFile);               // marker with cities: location and geo(feature)
 		cityMarkers = new ArrayList<Marker>();
 		for(Feature city : cities) {
 		  cityMarkers.add(new CityMarker(city));
 		}
 	    
 		//     STEP 3: read in earthquake RSS feed
-	    List<PointFeature> earthquakes = ParseFeed.parseEarthquake(this, earthquakesURL);
+	    List<PointFeature> earthquakes = ParseFeed.parseEarthquake(this, earthquakesURL);    // marker with earthquake: location and geo(feature)
 	    quakeMarkers = new ArrayList<Marker>();
 	    
-	    for(PointFeature feature : earthquakes) {
+	    
+	    for(PointFeature feature : earthquakes) {        // check id every earthquake location is in land
 		  //check if LandQuake
+	    	
 		  if(isLand(feature)) {
-		    quakeMarkers.add(new LandQuakeMarker(feature));
+		    quakeMarkers.add(new LandQuakeMarker(feature));  
 		  }
 		  // OceanQuakes
 		  else {
@@ -125,7 +128,7 @@ public class EarthquakeCityMap extends PApplet {
 	public void draw() {
 		background(0);
 		map.draw();
-		addKey();
+//		addKey();
 		
 	}
 	
@@ -160,15 +163,18 @@ public class EarthquakeCityMap extends PApplet {
 	// "country" property of its PointFeature to the country where it occurred
 	// and returns true.  Notice that the helper method isInCountry will
 	// set this "country" property already.  Otherwise it returns false.
-	private boolean isLand(PointFeature earthquake) {
+	private boolean isLand(PointFeature earthquake) {                             // for one eathquake location
 		
 		
 		// Loop over all the country markers.  
 		// For each, check if the earthquake PointFeature is in the 
 		// country in m.  Notice that isInCountry takes a PointFeature
 		// and a Marker as input.  
-		// If isInCountry ever returns true, isLand should return true.
+		// If isInCountry ever returns true, isLand should return true.          // check if it is in country locatoin
 		for (Marker m : countryMarkers) {
+			if (isInCountry(earthquake,m)) {
+				return true;
+			}
 			// TODO: Finish this method using the helper method isInCountry
 			
 		}
@@ -186,6 +192,26 @@ public class EarthquakeCityMap extends PApplet {
 	 * */
 	private void printQuakes() 
 	{
+		
+		int totalQuakes = quakeMarkers.size();
+		for (Marker country : countryMarkers) {
+			String countryName = country.getStringProperty("name");
+			int OneCountryCount = 0;
+			for(Marker mk: quakeMarkers) {
+				if(countryName.equals(mk.getStringProperty("country"))) {     // This is add through island and in iscountry.
+					OneCountryCount++;
+				}
+				
+			}
+			if(OneCountryCount > 0 ) {
+				totalQuakes -= OneCountryCount;
+				System.out.println(countryName + " : "+ OneCountryCount);
+			}
+			
+			
+		}
+		System.out.println("Ocean Quakes : "+ totalQuakes);
+		
 		// TODO: Implement this method
 		// One (inefficient but correct) approach is to:
 		//   Loop over all of the countries, e.g. using 
@@ -223,6 +249,10 @@ public class EarthquakeCityMap extends PApplet {
 	private boolean isInCountry(PointFeature earthquake, Marker country) {
 		// getting location of feature
 		Location checkLoc = earthquake.getLocation();
+//		System.out.println("----");
+//		System.out.println(checkLoc);
+//		System.out.println("eeee");
+		
 
 		// some countries represented it as MultiMarker
 		// looping over SimplePolygonMarkers which make them up to use isInsideByLoc
@@ -230,11 +260,18 @@ public class EarthquakeCityMap extends PApplet {
 				
 			// looping over markers making up MultiMarker
 			for(Marker marker : ((MultiMarker)country).getMarkers()) {
-					
-				// checking if inside
+				
+//				System.out.println("6666");
+//				System.out.println(earthquake.getProperty("country"));
+//				System.out.println("888");
+				
+				// checking if inside)
 				if(((AbstractShapeMarker)marker).isInsideByLocation(checkLoc)) {
-					earthquake.addProperty("country", country.getProperty("name"));
-						
+					earthquake.addProperty("country", country.getProperty("name"));       // add country name to the one earthquake location 
+//					System.out.println("----");
+//					System.out.println(earthquake.getProperty("country"));
+//					System.out.println("****");
+//					System.out.println(country.getProperty("name"));	
 					// return if is inside one
 					return true;
 				}
