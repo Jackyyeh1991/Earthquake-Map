@@ -105,7 +105,7 @@ public class EarthquakeCityMap extends PApplet {
 	    }
 
 	    // could be used for debugging
-	    printQuakes();
+//	    printQuakes();
 	 		
 	    // (3) Add markers to map
 	    //     NOTE: Country markers are not added to the map.  They are used
@@ -146,6 +146,21 @@ public class EarthquakeCityMap extends PApplet {
 	private void selectMarkerIfHover(List<Marker> markers)
 	{
 		// TODO: Implement this method
+		if(lastSelected != null) {
+			return;
+		}
+		
+		for(Marker mk : markers) {
+			CommonMarker mkr = (CommonMarker)mk;           // since CommonMarker lastSelected is defined above
+			if (mk.isInside(map,mouseX, mouseY)) {
+				lastSelected = mkr;          
+				mkr.setSelected(true);
+				System.out.println("select");
+				return;								
+			}
+			
+		}
+		
 	}
 	
 	/** The event handler for mouse clicks
