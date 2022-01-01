@@ -174,3 +174,4 @@ public abstract class EarthquakeMarker extends CommonMarker
 	
 	
 }
+
