@@ -1,5 +1,5 @@
 # Earthquake-Map
-<img src="/image/module5result.png" alt="" style="width:800px;"/>
+<img src="/image/module5result.png" alt="" align="middle" style="width:800px;"/>
 
 
 ## Real Time Earthquake Location
