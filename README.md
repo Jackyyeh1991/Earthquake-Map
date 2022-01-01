@@ -13,7 +13,7 @@
 <img src="/image/EarthquakeLocationMagCItyLandOcean.png" alt="" style="width:500px;"/>
 
 
-## Show selected tag
+## Show Hover Over City/Earthquake's Tag
 <img src="/image/showtag.png" alt="" style="width:500px;"/>
 
 
