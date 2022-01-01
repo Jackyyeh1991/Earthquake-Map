@@ -8,7 +8,7 @@
 * Show hover over City/Earthquake's Tag
 * Show selected city/earthquakes and impacted earthquakes/city, and hide irrelevant mark
 
-
+<strong>bold text</strong>.
 ## Real Time Earthquake Location
 <!-- ![Earthquake](/image/EarthquakeLocationMag.png) -->
 <img src="/image/EarthquakeLocationMag.png" alt="" style="width:500px;"/>
