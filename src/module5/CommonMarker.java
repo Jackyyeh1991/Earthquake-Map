@@ -15,6 +15,8 @@ public abstract class CommonMarker extends SimplePointMarker {
 	// Records whether this marker has been clicked (most recently)
 	protected boolean clicked = false;
 	
+	
+	// Constructor
 	public CommonMarker(Location location) {
 		super(location);
 	}
@@ -40,7 +42,7 @@ public abstract class CommonMarker extends SimplePointMarker {
 	public void draw(PGraphics pg, float x, float y) {
 		// For starter code just drawMaker(...)
 		if (!hidden) {
-			drawMarker(pg, x, y);
+			drawMarker(pg, x, y);                                                       // here is draw marker
 			if (selected) {
 				showTitle(pg, x, y);  // You will implement this in the subclasses
 			}
