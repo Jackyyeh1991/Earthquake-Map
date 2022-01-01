@@ -3,7 +3,10 @@
   <img src="/image/module5result.png" alt="" align="center" style="width:800px;"/>
 </p>
 
-<font size="50"> * Item </font> 	
+* Real-Time Earthquakes Interactive Map
+* Show city and earthquakes location on map
+* Show hover over City/Earthquake's Tag
+* Show selected city/earthquakes and impacted earthquakes/city, and hide irrelevant mark
 
 
 ## Real Time Earthquake Location
@@ -20,7 +23,7 @@
 <img src="/image/showtag.png" alt="" style="width:500px;"/>
 
 
-## Show Selected City/Earthquakes and Impacted Earthquakes/City
+## Only Show Selected City/Earthquakes and Impacted Earthquakes/City
 <img src="/image/impactCity.png" alt="" style="width:500px;"/>
 
 
