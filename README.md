@@ -1,19 +1,19 @@
 # Earthquake-Map
 
 ## Visualizin Life Expectancy
-![lifeExp](lifeExp.png)
+<img src="lifeExp.png" alt="" style="width:500px;"/>
 
 ## Real Time Earthquake Location
-![Earthquake](/image/EarthquakeLocationMag.png)
+<!-- ![Earthquake](/image/EarthquakeLocationMag.png) -->
+<img src="/image/EarthquakeLocationMag.png" alt="" style="width:500px;"/>
 
 
 ## Real Time Earthquake Location With Different Class Marker
-![](/image/EarthquakeLocationMagCItyLandOcean.png width="48")
+<!-- ![](/image/EarthquakeLocationMagCItyLandOcean.png) -->
+<img src="/image/EarthquakeLocationMagCItyLandOcean.png" alt="" style="width:500px;"/>
 
 
+## Show selected mark
+<img src="/image/showtag.png" alt="" style="width:800px;"/>
 
 
-![](/image/showtag.png)
-
-
-<img src="/image/EarthquakeLocationMagCItyLandOcean.png" alt="drawing" style="width:800px;"/>
