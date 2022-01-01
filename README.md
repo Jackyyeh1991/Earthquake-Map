@@ -3,8 +3,8 @@
   <img src="/image/module5result.png" alt="" align="center" style="width:800px;"/>
 </p>
 
-	
-* Item
+<font size="50"> * Item </font> 	
+
 
 ## Real Time Earthquake Location
 <!-- ![Earthquake](/image/EarthquakeLocationMag.png) -->
