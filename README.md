@@ -6,7 +6,7 @@
 * Real-Time Earthquakes Interactive Map
 * Show city and earthquakes location on map
 * Show hover over City/Earthquake's Tag
-* <strong> Show selected city/earthquakes and impacted earthquakes/city, and hide irrelevant mark</strong>
+<strong> * Show selected city/earthquakes and impacted earthquakes/city, and hide irrelevant mark</strong>
 
 <strong>bold text</strong>.
 ## Real Time Earthquake Location
