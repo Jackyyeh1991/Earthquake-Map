@@ -1,6 +1,7 @@
 # Earthquake-Map
-<img src="/image/module5result.png" alt="" align="center" style="width:800px;"/>
-
+<p align="center">
+  <img src="/image/module5result.png" alt="" align="center" style="width:800px;"/>
+</p>
 
 ## Real Time Earthquake Location
 <!-- ![Earthquake](/image/EarthquakeLocationMag.png) -->
