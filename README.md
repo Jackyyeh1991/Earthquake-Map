@@ -15,3 +15,5 @@
 
 ![](/image/showtag.png)
 
+
+<img src="/image/EarthquakeLocationMagCItyLandOcean.png" alt="drawing" style="width:200px;"/>
