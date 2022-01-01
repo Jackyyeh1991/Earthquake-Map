@@ -12,11 +12,11 @@
 
 
 ## Show selected tag
-<img src="/image/showtag.png" alt="" style="width:800px;"/>
+<img src="/image/showtag.png" alt="" style="width:500px;"/>
 
 
-## Show Selected City/Earthquakes and Impacted Earthquakes/City)
-<img src="/image/impactCity.png" alt="" style="width:800px;"/>
+## Show Selected City/Earthquakes and Impacted Earthquakes/City
+<img src="/image/impactCity.png" alt="" style="width:500px;"/>
 
 
 ## Visualizin Life Expectancy
