@@ -8,11 +8,10 @@
 
 
 ## Real Time Earthquake Location With Different Class Marker
-![](/image/EarthquakeLocationMagCItyLandOcean.png)
+![](/image/EarthquakeLocationMagCItyLandOcean.png | width=100)
 
 
 
 
-<div style="float:left;margin:0 10px 10px 0" markdown="1">
-    ![book](/images/showtag.png)
-</div>
+![book](/images/showtag.png)
+
