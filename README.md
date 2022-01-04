@@ -7,6 +7,7 @@
 * <strong> Show city and earthquakes location on map</strong>
 * <strong> Show hover over City/Earthquake's Tag</strong>
 * <strong> Show selected city/earthquakes and impacted earthquakes/city, and hide irrelevant mark</strong>
+* <strong> Sort Earthquakes' magnitude from high to low</strong>
 
 
 ## Real Time Earthquake Location
