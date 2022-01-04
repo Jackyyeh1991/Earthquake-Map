@@ -28,5 +28,5 @@
 <img src="/image/impactCity.png" alt="" style="width:500px;"/>
 
 
-## Visualizin Life Expectancy
+## Visualizing Life Expectancy
 <img src="lifeExp.png" alt="" style="width:500px;"/>
