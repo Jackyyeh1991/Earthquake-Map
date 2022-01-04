@@ -2,6 +2,7 @@ package module6;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import de.fhpotsdam.unfolding.UnfoldingMap;
@@ -69,7 +70,7 @@ public class EarthquakeCityMap extends PApplet {
 		// (1) Initializing canvas and map tiles
 		size(900, 700);
 		if (offline) {
-		    map = new UnfoldingMap(this, 200, 50, 650, 600, new MBTilesMapProvider(mbTilesString));
+		    map = new UnfoldingMap(this, 0, 0, 650, 600, new MBTilesMapProvider(mbTilesString));
 		    earthquakesURL = "2.5_week.atom";  // The same feed, but saved August 7, 2015
 		}
 		else {
@@ -116,7 +117,8 @@ public class EarthquakeCityMap extends PApplet {
 	    }
 
 	    // could be used for debugging
-	    printQuakes();
+//	    printQuakes();
+	    sortAndPrint(20);
 	 		
 	    // (3) Add markers to map
 	    //     NOTE: Country markers are not added to the map.  They are used
@@ -137,7 +139,24 @@ public class EarthquakeCityMap extends PApplet {
 	
 	
 	// TODO: Add the method:
-	//   private void sortAndPrint(int numToPrint)
+	private void sortAndPrint(int numToPrint) {
+		List<EarthquakeMarker> qk = new ArrayList<EarthquakeMarker>();
+		for(Marker m: quakeMarkers) {
+			qk.add((EarthquakeMarker) m);
+		}
+		Collections.sort(qk);
+		if(numToPrint > qk.size()) {
+			for (int i = 0; i< qk.size(); i++) {
+				System.out.println(qk.get(i));
+			}
+		}
+		else {
+			for (int i = 0; i< numToPrint; i++) {
+				System.out.println(qk.get(i));
+			}
+		}
+		
+	}
 	// and then call that method from setUp
 	
 	/** Event handler that gets called automatically when the 
