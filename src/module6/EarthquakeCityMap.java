@@ -142,19 +142,31 @@ public class EarthquakeCityMap extends PApplet {
 	private void sortAndPrint(int numToPrint) {
 		List<EarthquakeMarker> qk = new ArrayList<EarthquakeMarker>();
 		for(Marker m: quakeMarkers) {
-			qk.add((EarthquakeMarker) m);
+			qk.add((EarthquakeMarker) m);    // we want to sort the earthquake, and we have implement Comparable<EarthquakeMarker> in EarthquakeMarker
 		}
+		
+		int mini = Math.min(numToPrint, qk.size());
+		
 		Collections.sort(qk);
-		if(numToPrint > qk.size()) {
-			for (int i = 0; i< qk.size(); i++) {
-				System.out.println(qk.get(i));
-			}
+		
+		System.out.println(mini);
+		
+		for (int i = 0; i< mini; i++) {
+			System.out.println(qk.get(i));
 		}
-		else {
-			for (int i = 0; i< numToPrint; i++) {
-				System.out.println(qk.get(i));
-			}
-		}
+
+		
+		
+//		if(numToPrint > qk.size()) {
+//			for (int i = 0; i< qk.size(); i++) {
+//				System.out.println(qk.get(i));
+//			}
+//		}
+//		else {
+//			for (int i = 0; i< numToPrint; i++) {
+//				System.out.println(qk.get(i));
+//			}
+//		}
 		
 	}
 	// and then call that method from setUp

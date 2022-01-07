@@ -29,7 +29,7 @@ public class AirportMap extends PApplet {
 	
 	public void setup() {
 		// setting up PAppler
-		size(800,600, OPENGL);
+		size(800,600);
 		
 		// setting up map and default events
 		map = new UnfoldingMap(this, 50, 50, 750, 550);
